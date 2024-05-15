@@ -33,12 +33,6 @@ const GameGrid = ({ gameQuery }: Props) => {
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
       loader={<Spinner />}
-      endMessage={
-        <Alert status="info">
-          <AlertIcon />
-          You have seen it all
-        </Alert>
-      }
     >
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
