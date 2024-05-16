@@ -1,8 +1,16 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
 import usePlatform from "../hooks/usePlatform";
 import useGameQueryStore from "../store";
+import PlatformIconList from "./PlatformIconList";
 
 const PlatformSelector = () => {
   const { data, error } = usePlatforms();
@@ -25,7 +33,8 @@ const PlatformSelector = () => {
             onClick={() => setSelectedPlatformId(platform.id)}
             key={platform.id}
           >
-            {platform.name}
+            <PlatformIconList platforms={[platform]} />
+            <Box paddingX={3}>{platform.name}</Box>
           </MenuItem>
         ))}
       </MenuList>
